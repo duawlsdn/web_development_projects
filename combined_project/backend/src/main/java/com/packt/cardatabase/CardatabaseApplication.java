@@ -2,8 +2,8 @@ package com.packt.cardatabase;
 
 import java.util.Arrays;
 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,7 +17,7 @@ import com.packt.cardatabase.domain.OwnerRepository;
 
 @SpringBootApplication
 public class CardatabaseApplication implements CommandLineRunner {
-//	private static final Logger logger = LoggerFactory.getLogger(CardatabaseApplication.class);
+	private static final Logger logger = LoggerFactory.getLogger(CardatabaseApplication.class);
 	private final CarRepository repository;
 	private final OwnerRepository orepository;
 	private final AppUserRepository urepository;
@@ -107,8 +107,8 @@ public class CardatabaseApplication implements CommandLineRunner {
 		urepository.save(new AppUser("admin","$2a$10$8cjz47bjbR4Mn8GMg9IZx.vyjhLXR/SKKMSZ9.mP9vpMu0ssKi8GW", "ADMIN"));
 		
 		// Fetch all cars and log to console
-//		for (Car car : repository.findAll()) {
-//			logger.info("brand: {}, model: {}", car.getBrand(), car.getModel());
-//		}
+		for (Car car : repository.findAll()) {
+			logger.info("brand: {}, model: {}", car.getBrand(), car.getModel());
+		}
 	}
 }
