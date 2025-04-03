@@ -1,6 +1,7 @@
 import { useState } from "react";
+import "./Inputs.css";
 
-function Values() {
+function Inputs() {
   const [ fieldValue, setFieldValue] = useState('');
   const [ timeValue, setTimeValue ] = useState('');
 
@@ -34,4 +35,4 @@ function Values() {
   );
 }
 
-export default Values;
+export default Inputs;

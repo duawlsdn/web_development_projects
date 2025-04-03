@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'OTEnjoystoriesBA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmarketSansBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.intro .intro_saying {
+  font-family: 'OTEnjoystoriesBA';
+  font-size: 36px;
+  color: #F5DF4D;
+  margin-bottom: 50px;
+}
+
+.intro .explain {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.intro .quotes {
+  position: relative;
+  padding-top: 20px;
+}
+
+.intro .explain p {
+  position: absolute;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.intro .explain span {
+  font-family: 'GmarketSansBold';
+  font-size: 20px;
+}

@@ -1,6 +1,6 @@
-function Result() {
-  
+import "./Result.css";
 
+function Result() {
   return (
     <div className="result">
       <div className="result_wrap">
