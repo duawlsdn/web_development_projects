@@ -1,0 +1,15 @@
+.start {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+.start .btn_wrap {
+  position: relative;
+}
+
+.start .click_img {
+  position: absolute;
+  right: -75px;
+  bottom: -25px;
+}

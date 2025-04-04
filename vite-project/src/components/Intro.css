@@ -41,7 +41,7 @@
 .intro .explain p {
   position: absolute;
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.7; 
 }
 
 .intro .explain span {

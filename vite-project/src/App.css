@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmarketSansBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @keyframes rotate {
   50% {
       transform: rotate(180deg);
@@ -43,4 +57,16 @@ button {
   padding: 10px 40px;
   cursor: pointer;
   word-break: keep-all;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+/* 공유 버튼 */
+.buttons .share button {
+  background-color: #FFF;
+  margin-left: 20px;
 }
