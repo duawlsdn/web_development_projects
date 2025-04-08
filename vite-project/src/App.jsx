@@ -1,16 +1,18 @@
-import './App.css'
-import Contents from './components/contents'
-import Copyright from './components/Copyright'
-import Modal from './components/modal'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Home from "./routes/Home";
+import Menu from "./routes/Menu";
+import DrinkDetail from "./components/DrinkDetail";
 
 function App() {
 
   return (
-    <div>
-      <Contents />
-      <Modal />
-      <Copyright />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/menu/drinkName" element={<DrinkDetail />} />
+      </Routes>
+    </Router>
   )
 }
 

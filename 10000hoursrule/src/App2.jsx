@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Container } from "@mui/material";
+import { Box, Container, Modal, Typography } from "@mui/material";
 import InputForm from "./components/InputForm";
 import ResultBox from "./components/ResultBox";
 import MotivationalModal from "./components/MotivationalModal";
@@ -49,36 +49,18 @@ function App() {
       fontFamily: 'GmarketSansMedium'
       }}>
       <Container maxWidth='md' sx={{ pt: 5}}>
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 5}}>
-          <Box
-            sx={{
-              position: 'relative',
-              width: 265,
-              height: 265,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center'}}
-          >
-            <img 
-              src={ClockImage} 
-              alt="시계"
-              width={265}
-              height={265}
-              style={{position: 'absolute', top: 0, left: 0}}
-              />
-            <Box sx={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: 600,
-            }}>
-              <img 
-                src={TitleImage} 
-                alt="타이틀"
-                style={{width: '100%'}}
-                />
-            </Box>
+        <Box sx={{
+          display: 'flex',
+          flexDirection:'column',
+          alignItems: 'center',
+          mb: 5,
+        }}>
+          <img src={ClockImage} alt="Clock" width={265} height={265} style={{position:'relative'}}/>
+          <Box sx={{
+            position: 'absolute',
+            width: 564,
+          }}>
+            <img src={TitleImage} alt="Title" style={{width:'100%'}}/>
           </Box>
         </Box>
         <InputForm
@@ -103,6 +85,7 @@ function App() {
         />
 
         <Footer/>
+        
       </Container>
     </Box>
   )
