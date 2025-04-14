@@ -4,6 +4,7 @@ import { getCars, deleteCar } from "../api/carapi";
 import { DataGrid,GridCellParams,GridColDef } from "@mui/x-data-grid";
 import { Snackbar } from "@mui/material";
 import AddCar from "./AddCar";
+import EditCar from "./EditCar";
 
 function Carlist() {
   const [ open, setOpen ] = useState(false);
@@ -30,8 +31,19 @@ function Carlist() {
     {field: 'registrationNumber', headerName: 'Reg.nr.', width: 150},
     {field: 'modelYear', headerName: 'Model Year', width: 150},
     {field: 'price', headerName: 'Price', width: 150},
+
     {
       field: 'edit',
+      headerName: '',
+      width: 90,
+      sortable: false,
+      disableColumnMenu: true,
+      renderCell: (params: GridCellParams) => 
+        <EditCar cardata={params.row} />
+    },
+
+    {
+      field: 'delete',
       headerName: '',
       width: 90,
       sortable: false,
@@ -43,10 +55,7 @@ function Carlist() {
             if(window.confirm(`${params.row.brand}의 ${params.row.model}을 삭제하시겠습니까?`)){
               mutate(params.row._links.car.href)
             }
-          }}
-        >
-          삭제
-        </button>
+          }}>삭제</button>
     }
   ]
 
