@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { getCars, deleteCar } from "../api/carapi";
-import { DataGrid,GridCellParams,GridColDef } from "@mui/x-data-grid";
+import { DataGrid,GridCellParams,GridColDef,GridToolbar } from "@mui/x-data-grid";
 import { Snackbar } from "@mui/material";
+import IconButton from "@mui/material/IconButton"; // 보험용 -> 작성법이 변경됨.
+import DeleteIcon from "@mui/icons-material/Delete"; // 얘도 변경됨
 import AddCar from "./AddCar";
 import EditCar from "./EditCar";
+import {Tooltip} from "@mui/material";
 
 function Carlist() {
   const [ open, setOpen ] = useState(false);
@@ -49,22 +52,24 @@ function Carlist() {
       sortable: false,
       filterable: false,
       disableColumnMenu: true,
-      renderCell: (params: GridCellParams) => 
-        <button 
-          onClick={() => {
-            if(window.confirm(`${params.row.brand}의 ${params.row.model}을 삭제하시겠습니까?`)){
-              mutate(params.row._links.car.href)
-            }
-          }}>삭제</button>
+      renderCell: (params: GridCellParams) => (
+        <Tooltip title="Delete Car">
+          <IconButton 
+            aria-label="delete" 
+            size="small"
+            onClick={() => {
+              if(window.confirm(`${params.row.brand}의 ${params.row.model}을 삭제하시겠습니까?`))
+                mutate(params.row._links.car.href)}}
+          >
+            <DeleteIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
+      )
     }
   ]
 
-  if(!isSuccess) {
-    return <span>Loading 중...⚙</span>
-  }
-  else if(error) {
-    return <span>자동차 데이터 가져오기 중 오류 발생🔴</span>
-  }
+  if(!isSuccess)  return <span>Loading 중...⚙</span>
+  else if(error) return <span>자동차 데이터 가져오기 중 오류 발생🔴</span>
   else {
     return(
       <>
@@ -75,6 +80,7 @@ function Carlist() {
           columns={columns}
           getRowId={row => row._links.self.href}
           // disableRowSelectionOnClick={true}
+          slots={{toolbar: GridToolbar}}
         />
         <Snackbar 
           open={open}
